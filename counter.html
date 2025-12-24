@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 100px;
+            background-color: blanchedalmond;
+
+        }
+        #count{
+            font-size: 40px;
+            margin: 20px 0;
+        }
+        .btn{
+            font-size: 25px;
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: rgb(189, 32, 32);
+            border: none;
+            border-radius: 10px;
+            color: white;
+        }
+        .count-btn{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .btn-1{
+            font: 1em sans-serif;
+            margin: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: rgb(32, 189, 103);
+            border: none;
+            border-radius: 10px;
+            color: white;
+        }
+        #par{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Counter</h1>
+    <p id="count">0</p>
+<div class="count-btn">
+        <button class="btn" id="inc">Increment</button>
+        <button class="btn" id="dec">Decrement</button>
+</div>
+
+    <button class="btn-1" id="save">Save</button>
+    <button class="btn-1" id="res" onclick="reset()">Reset</button>
+    <p id="par">Previous Entries: </p>
+
+</body>
+<script>
+    let count = 0;
+    // document.getElementById('inc').innerHTML = '+';
+    // document.getElementById('dec').innerHTML = '-';
+    document.getElementById('inc').addEventListener('click', function() {
+        count++;
+        document.getElementById('count').innerHTML = count;
+    });
+    document.getElementById('dec').addEventListener('click', function() {
+        count--;
+        document.getElementById('count').innerHTML = count;
+    });
+    document.getElementById('save').addEventListener('click',function(){
+        let countstr = count + " - ";
+        document.getElementById('par').innerHTML += countstr;
+        // document.getElementById('par').innerText += countstr;
+        // document.getElementById('par').textContent += countstr;
+    })
+    let res = document.getElementById('res');
+    function reset(){
+        count = 0;
+        document.getElementById('count').textContent = 0;
+    }
+
+</script>
+</html>
